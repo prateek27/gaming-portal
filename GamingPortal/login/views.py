@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from login.models import UserProfile
-from login.forms import LoginForm
+from login.forms import LoginForm,UserForm,UserProfileForm
 
 from django.core import serializers
 from django.contrib.auth import authenticate, login, logout
@@ -41,10 +41,17 @@ def logout_view(request):
     logout(request)
     return redirect('/login/')
 
-def signup(request):
-    return HttpResponse(" Hi Sign Up Here ")
+def signup_view(request):
+    if request.method == "POST":
+        return HttpResponse("Form Submitted")
+    else:
+        user_form = UserForm()
+        user_profile_form = UserProfileForm()
+        context_dict ={"user_form":user_form,"user_profile_form":user_profile_form};
+        return render(request,'signup.html',context_dict)
 
 
 
-def forgot(request):
+
+def forgot_password_view(request):
     return HttpResponse("Your Password has been emailed ! :) ")
