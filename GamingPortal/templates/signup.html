@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>GamersHQ Login</title>
+	</head>
+
+	<body>
+		<h1>New Users Registration : GAMERSHQ</h1>
+
+		<form id="signup_form" method="post" action = "/signup/" >
+		{% csrf_token %}
+		{{ user_form.as_p}}
+		{{ user_profile_form.as_p}}
+		
+		<input type = "submit" name="submit" value="SignUp"/>
+		<input type = "button" value="SignUp" action ="/login/"/>
+		</form>
+	</body>
+</html>

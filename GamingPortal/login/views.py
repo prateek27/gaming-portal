@@ -12,12 +12,10 @@ from django.http import HttpResponse, Http404
 from django.core import serializers
 # Create your views here.
 
-def some_view(request):
-    return HttpResponse("Hello World!")
 
 def login_view(request):
     if request.user.is_authenticated():
-        return HttpResponse("You are already Logged In :) ")
+        return HttpResponse("You are already Logged In ") 
     
     if request.method =='POST':
         next_url = request.POST.get('next',None)
@@ -43,7 +41,10 @@ def logout_view(request):
 
 def signup_view(request):
     if request.method == "POST":
-        return HttpResponse("Form Submitted")
+        user_profile_form = UserProfileForm(data = request.POST)
+        user_form  = UserForm(data=request.POST)
+        if user_form.is_valid() and user_profile_form.is_valid():
+            return HttpResponse("Form Submitted Sucessfully")
     else:
         user_form = UserForm()
         user_profile_form = UserProfileForm()
