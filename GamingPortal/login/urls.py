@@ -7,5 +7,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'GamingPortal.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^login',login,name="something"),
+    url(r'^login/$',login_view,name="login_view"),
+    url(r'^logout/$',logout_view,name="logout_view"),
 )

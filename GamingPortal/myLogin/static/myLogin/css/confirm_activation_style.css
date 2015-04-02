@@ -1,0 +1,27 @@
+a{
+	color: rgb(123, 127, 123);
+}
+
+.container{
+	width: 100%;
+	height: 41rem;
+}
+
+.message_container{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 2rem;
+	border: thick solid rgb(242, 242, 240);
+	border-radius: 3%;
+}
+
+.message_container>p{
+	text-align: center;
+}
+
+.error_message{
+	color: red;
+	font-size: 2rem;
+}

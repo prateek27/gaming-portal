@@ -7,11 +7,12 @@
 	<body>
 		<h1>Login to GamersHQ</h1>
 
-		<form id="login_form" method="post" action = "/login" enctyp = "multipart/form-data">
+		<form id="login_form" method="post" action = "/login/" >
 		{% csrf_token %}
 		{{ form.as_p}}
 		
-		<input type = "submit" name="submit" value="Register"/>
+		<input type = "submit" name="submit" value="Login"/>
+		<input type = "button" value="SignUp" action ="/register/"/>
 		</form>
 	</body>
 </html>
