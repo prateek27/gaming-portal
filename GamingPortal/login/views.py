@@ -41,10 +41,25 @@ def logout_view(request):
 
 def signup_view(request):
     if request.method == "POST":
-        user_profile_form = UserProfileForm(data = request.POST)
-        user_form  = UserForm(data=request.POST)
+        user_profile_form = UserProfileForm(request.POST,request.FILES)
+        user_form  = UserForm(request.POST)
+        
+         
         if user_form.is_valid() and user_profile_form.is_valid():
-            return HttpResponse("Form Submitted Sucessfully")
+            user = user_form.save()
+            user.set_password(user.password)
+            user.save()
+
+            user_profile = user_profile_form.save(commit=False)
+            user_profile.user = user;
+            if 'profile_image' in request.FILES:
+                user_profile.profile_image = request.FILES['profile_image']
+            
+            user_profile.save()
+
+            return HttpResponse("You are now successfully registered ! ")
+        else:
+            return HttpResponse("Form Not Valid !")
     else:
         user_form = UserForm()
         user_profile_form = UserProfileForm()
