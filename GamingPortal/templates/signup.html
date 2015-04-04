@@ -7,7 +7,7 @@
 	<body>
 		<h1>New Users Registration : GAMERSHQ</h1>
 
-		<form id="signup_form" method="post" action = "/signup/" >
+		<form id="signup_form" method="post" action = "/signup/" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ user_form.as_p}}
 		{{ user_profile_form.as_p}}

@@ -1,9 +1,10 @@
 from django.contrib import admin
 from login.models import *
+from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User 
 
 # Register your models here.
-class UserInline(Admin.StackedInline):
+class UserInline(admin.StackedInline):
 	model = UserProfile
 	can_delete = False
 
