@@ -1,18 +1,50 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html>
 	<head>
 		<title>GamersHQ Login</title>
 	</head>
-
+	<style>	
+	 body{
+	 	background-color: #BCBCBC;
+	 }
+	 #signup_form{
+	 	background-color: white;
+	 	opacity: 0.8;
+	 	padding: 20px;
+	 	margin: auto;
+	 	width:400px;
+	 	border-radius: 10px ;
+	 }
+	 h1{
+	 	color: white;
+	 	text-shadow:2px 2px 2px 41px white;
+	 	margin-left:25%;
+	 }
+	 input{
+	 	border: 2px solid white;
+	 	background: orange;
+	 	margin-left: 40%;
+	 }
+	 .btn{
+	 	padding:5px;
+	 	color:white;
+	 	font-family: arial black;
+	 	width: 100px;
+	 	font-size: 1.5rem;
+	 	margin-left: 70%;
+	 }
+	 </style>
 	<body>
-		<h1>New Users Registration : GAMERSHQ</h1>
+		<img src="{%static "images/logo.jpg"%}">
+		<h1>New Users Register here !</h1>
 
 		<form id="signup_form" method="post" action = "/signup/" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ user_form.as_p}}
 		{{ user_profile_form.as_p}}
 		
-		<input type = "submit" name="submit" value="SignUp"/>
+		<input type = "submit" name="submit" class="btn" value="SignUp"/>
 		</form>
 	</body>
 </html>

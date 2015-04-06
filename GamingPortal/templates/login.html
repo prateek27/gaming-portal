@@ -1,9 +1,39 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html>
 	<head>
 		<title>GamersHQ Login</title>
 	</head>
+	<style>	
+	 body{
+	 	background:url({% static "images/orange_black.jpg"%});
+	 }
+	 #login_form{
+	 	background-color: white;
+	 	opacity: 0.8;
+	 	padding: 20px;
+	 	margin: auto;
+	 	width:400px;
+	 	border-radius: 10px ;
+	 }
+	 h1{
+	 	color: white;
+	 	text-shadow:2px 2px 2px 1px white;
+	 	margin-left: 40%;
+	 }
+	 input{
+	 	border: 2px solid white;
+	 	background: orange;
+	 }
+	 .btn{
+	 	padding:5px;
+	 	color:white;
+	 	font-family: arial black;
+	 	width: 100px;
+	 	font-size: 1.5rem;
+	 }
 
+	</style>
 	<body>
 		<h1>Login to GamersHQ</h1>
 
@@ -11,8 +41,8 @@
 		{% csrf_token %}
 		{{ form.as_p}}
 		
-		<input type = "submit" name="submit" value="Login"/>
-		<input type = "button" value="SignUp" action ="/register/"/>
+		<input type = "submit" name="submit" value="Login" class="btn"/>
+		<a href = "/signup/"><input type = "button" value="SignUp" class="btn" ></a>
 		</form>
 	</body>
 </html>

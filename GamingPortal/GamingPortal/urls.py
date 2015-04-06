@@ -11,4 +11,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^captcha/', include('captcha.urls')),
     url(r'^',include('login.urls')),
+    url(r'^home',include('home.urls')),
+    url(r'^games',include('games.urls')),
 )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

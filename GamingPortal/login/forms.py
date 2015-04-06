@@ -19,7 +19,7 @@ class UserProfileForm(forms.ModelForm):
         fields = ('profile_url','profile_image')
 
 class LoginForm(forms.ModelForm):
-    #password = forms.CharField(widget=forms.PasswordInput())
+    password = forms.CharField(widget=forms.PasswordInput())
     class Meta:
         model = User
         fields = ('username','password')

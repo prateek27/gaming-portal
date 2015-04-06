@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+{% load staticfiles %} 
+<html>
+
+<head>
+		
+
+<title>Games Home</title>
+
+		
+<script src="{% static "javascript/jquery-1.11.2.min.js" %}" type="text/javascript"></script>
+<script src="{% static "javascript/jquery.carouFredSel-6.0.4-packed.js" %}" type="text/javascript"></script>
+
+<script>
+			
+$(function() {
+				
+var _center = {
+					
+width: 600,
+					
+height: 400,
+					
+marginLeft: 0,
+					
+marginTop: 0,
+					
+marginRight: 0
+				
+};
+				
+var _left = {
+					
+width: 300,
+					
+height: 200,
+					
+marginLeft: 0,
+					
+marginTop: 150,
+					
+marginRight: -150
+				
+};
+				
+var _right = {
+					
+width: 300,
+					
+height: 200,
+					
+marginLeft: -150,
+					
+marginTop: 150,
+					
+marginRight: 0
+				
+};
+				
+var _outLeft = {
+					
+width: 150,
+					
+height: 100,
+					
+marginLeft: 150,
+					
+marginTop: 200,
+					
+marginRight: -200
+				
+};
+				
+var _outRight = {
+					
+width: 150,
+					
+height: 100,
+					
+marginLeft: -200,
+					
+marginTop: 200,
+					
+marginRight: 50
+				
+};
+				
+$('#carousel').carouFredSel({
+					
+width: 900,
+					
+
+height: 400,
+					
+align: false,
+					
+items: {
+						
+visible: 3,
+						
+width: 100
+					
+},
+					
+scroll: {
+						
+items: 1,
+						
+duration: 400,
+						
+onBefore: function( data ) {
+							
+data.items.old.eq( 0 ).animate(_outLeft);
+							
+data.items.visible.eq( 0 ).animate(_left);
+							
+data.items.visible.eq( 1 ).animate(_center);
+							
+data.items.visible.eq( 2 ).animate(_right).css({ zIndex: 1 });
+							
+data.items.visible.eq( 2 ).next().css(_outRight).css({ zIndex: 0 });
+
+							
+setTimeout(function() {
+						
+data.items.old.eq( 0 ).css({ zIndex: 1 });
+								
+data.items.visible.eq( 0 ).css({ zIndex: 2 });
+								
+data.items.visible.eq( 1 ).css({ zIndex: 3 });
+								
+data.items.visible.eq( 2 ).css({ zIndex: 2 });
+							
+}, 200);
+						
+}
+					
+}
+				
+});
+			
+$('#carousel').children().eq( 0 ).css(_left).css({ zIndex: 2 });
+	
+$('#carousel').children().eq( 1 ).css(_center).css({ zIndex: 3 });
+		
+$('#carousel').children().eq( 2 ).css(_right).css({ zIndex: 2 });
+				
+$('#carousel').children().eq( 3 ).css(_outRight).css({ zIndex: 1 });
+			
+});
+		
+</script>
+	
+
+
+<style type="text/css">
+body{ background : #000 ; margin : 0px ;}
+div#menubar1 {padding : 24px ; border : #999 1px; background-image:"{% static "images/back2.jpg "%}" }
+div#menubar1 > a
+{
+font-family: monotype corsiva;
+font-size:45px;
+background: #333;
+padding : 10px 20px;
+color : #999;
+text-decoration : none;
+margin-right : 20px;
+-c- transition : background 0.3s linear 0s , color 0.3s linear 0s;
+transition : background 0.5s linear 0s , color 0.5s linear 0s;
+}
+
+div#menubar1 > a:hover
+{
+background : #6F8A00;
+color : #FFF;
+
+}
+</style>
+
+
+	
+<style type="text/css">
+			
+html {
+background:url({% static "images/orange_black.jpg"%});				
+height: 100%;
+				
+			
+}
+			
+
+			
+body * {
+				
+font-family: Arial, Geneva, SunSans-Regular, sans-serif;
+				
+font-size: 14px;
+				
+color: #333;
+				
+line-height: 22px;
+			
+}
+			
+#wrapper {
+				
+width: 900px;
+				
+height: 400px;	
+margin: -150px 0 0 -450px;	
+position: absolute;
+				
+top: 50%;
+				
+left: 50%;
+			
+}
+			
+#carousel img {
+				
+display: block;
+float: left;				
+border: 10px solid white;
+box-shadow: 1px 1px 1px 1px black;
+				
+position: relative;
+}
+			
+			
+#donate-spacer {
+				
+height: 100%;
+			
+}
+#menubar1{
+	height: 50px;
+	background-color: white;
+}	
+
+#donate {
+				
+border-top: 1px solid #999;
+				
+width: 750px;
+				
+padding: 50px 75px;
+				
+margin: 0 auto;
+				
+overflow: hidden;
+			
+}
+			
+#donate p, #donate form {
+				
+margin: 0;
+				
+float: left;
+			
+}
+			
+#donate p {
+				
+width: 650px;
+			
+}
+			
+#donate form {
+				
+width: 100px;
+			
+}
+		
+</style>
+
+
+</head>
+	
+
+<style type="text/css">
+.tst1{padding:20px; background-image: "{% static "back2.jpg"%}"; margin: 0px ;}
+</style>
+
+
+	
+<div id = "menubar1">
+<img src="{% static "images/logo.jpg" %}" width="300" height="50" padding:20px;>
+
+</div>
+
+<br>
+
+<div id="wrapper">
+			
+<div id="carousel">
+				
+<img src="{% static "images/1.jpg" %}"  width="500" height="200" />
+				
+<img src="{% static "images/2.jpg"%}" width="500" height="200" />
+				
+<img src="{% static "images/3.jpg"%}" width="500" height="200" />
+	
+<img src="{% static "images/1.jpg"%}" width="500" height="200" />
+				
+<img src="{% static "images/2.jpg"%}" width="500" height="200" />
+
+<img src="{% static "images/3.jpg"%}" width="500" height="200" />
+							
+</div>
+		
+</div>
+	
+</body>	
+		
+
+</html>
