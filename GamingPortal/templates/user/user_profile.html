@@ -2,62 +2,12 @@
 {% load staticfiles %}
 <head>
 	<title>My Profile</title>
+	<link rel="stylesheet" href="{% static "css/nav.css"  %}">  
 </head>
 <style>
-html{
-	background-color: #00ADEF;
-	padding: 0px;
-	min-height: 900px; 
-}
-
-body{
-	background-color: white;
-	width:80%;
-	margin: auto;
-	border-radius: 50px;
-	min-height: 800px;
-}
 .inside_body_container{
 	margin: 20px;
 	padding: 40px;
-}
-.flex_container{
-	display: flex;
-	direction: row;
-}
-ul{
-	list-style: none;
-	color:blue;
-	margin-left: 40%;
-	margin-top: 30px;
-}
-ul li{
-	list-style: none;
-	margin-left: 20px;
-}
-nav a{
-	text-decoration: none;
-	color:orange;
-	font-style: bold;
-	font-family: sans-serif;
-	font-weight: bold;
-
-}
-nav{
-	background-color: white;
-	border-bottom: 10px solid orange;
-	position:fixed;
-	width: 100%;
-	margin-left: -10%;
-	margin-top: 0%;
-
-}
-nav img{
-	width:25%;
-	height: 25%;
-}
-section{
-	padding:50px;
 }
 #profile_image{
 	height: 250px;

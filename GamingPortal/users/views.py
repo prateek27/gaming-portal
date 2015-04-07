@@ -24,3 +24,6 @@ def user_profile_view(request):
 		return render(request,"user/user_profile.html",context_dict)
 	else:
 		return HttpResponse("You are Not Logged In !")
+
+def all_users_view(request):
+	return HttpResponse("Welcome to All Users")

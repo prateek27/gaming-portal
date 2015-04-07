@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load staticfiles %} 
+<html>
+
+<head>
+	<title>Games Home</title>
+</head>
+
+</body>
+<nav class="flex_container">
+		<img src="{% static "images/logo.jpg" %}"/>
+		<ul class="flex_container">
+				
+			<li><a href ="/users" a>Profile</a></li>
+			<li><a href ="/games" a>Games</a></li>
+			<li><a href="/feed" a>Home</a></li>
+			<li><a href="/logout">Logout</a></li>
+		</ul>
+</nav>
+
+<div>
+
+	<ul>
+		{% for x in game_list %}
+			<li> {{x.game_name}}</li>
+		{% endfor %}
+	</ul>
+</div>
+	
+</body>	
+		
+
+</html>

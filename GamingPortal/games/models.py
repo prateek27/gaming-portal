@@ -20,4 +20,4 @@ class GameSubmission(models.Model):
 	score = models.IntegerField(default=0)
 
 	def __str__(self):
-		return game.game_name + user.username
+		return self.game.game_name 

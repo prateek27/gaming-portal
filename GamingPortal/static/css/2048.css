@@ -1,0 +1,119 @@
+body{
+	overflow:hidden;
+	background: url("my_numbers.jpg");
+	background-repeat: repeat-x;
+	-webkit-animation: animatedBackground 20s linear infinite;
+}
+
+@-webkit-keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 100% 0; }
+}
+
+#game_div{
+
+	margin: auto;
+	margin-top: 50px;
+	width: 460px;
+	height: 450px;
+	background-color:rgb(186, 172, 159);	
+	padding: 10px;
+	border-radius: 5px;
+	border:10px solid white;
+	opacity: 0.97;
+}
+
+button{
+	position: absolute;
+	margin:auto;
+	font-size: 2rem;
+	color:rgb(61, 35, 18);
+	font-family: -webkit-pictograph, sans-serif;
+	text-shadow:2px 2px 1px white;
+	background: rgb(186, 172, 159);
+	padding:5px;
+	padding-left: 20px;
+	padding-right: 30px; 
+	border:none;
+	margin-left: 100px;
+}
+#user_score,#high_score{
+	margin-top: 30px;
+	display: block;
+
+	font-size: 2rem;
+	color:rgb(186, 172, 159);
+	background-color: rgb(61, 35, 18);
+	color:white;
+	text-align: center;
+}
+#high_score{
+	margin-top:0px;
+}
+.tile{
+	height: 90px;
+	width: 90px;
+	line-height: 90px;
+	text-align: center;
+	font-weight: bold;
+	display: inline-block;
+	margin:10px;
+	background-color:rgb(205, 193, 181);
+	border-radius: 2px;
+	font-size:2.5rem;
+	font-family: sans-serif;
+	font-style: bold;
+		
+}
+.zero{
+	background-color:rgb(205, 193, 181);
+	color:rgb(205, 193, 181);
+}
+.two{
+	background-color: rgb(238, 228, 218);
+	color:rgb(116, 101, 91);
+}
+.four{
+	background-color: rgb(236, 224, 202);
+	color:rgb(122, 111, 102);
+}
+.eight{
+	background-color: rgb(242, 177, 121);
+	color:rgb(255,255,255);
+}
+.sixteen{
+	background-color: rgb(245, 149, 101);
+	color:rgb(255,255,255);
+}
+.thirtytwo{
+	background-color: rgb(245, 124, 95);
+	color:rgb(255,255,255);
+}
+.sixty4{
+	background-color: rgb(245, 92, 58);
+	color:rgb(255,255,255);
+}
+.one28{
+	background-color: rgb(242, 216, 106);
+	color:rgb(255,255,255);
+}
+.two56{
+	background-color: rgb(237, 203, 98);
+	color:rgb(255,255,255);
+}
+.five12{
+	background-color: rgb(228, 192, 42);
+	color:rgb(255,255,255);
+}
+.one024{
+	background-color: rgb(225, 182, 28);
+	color:rgb(255,255,255);
+}
+.two048{
+	background-color: rgb(236, 196, 0);
+	color:rgb(255,255,255);
+}
+.biggerValues{
+	background-color: rgb(236, 196, 0);
+	color:rgb(255,255,255);
+}

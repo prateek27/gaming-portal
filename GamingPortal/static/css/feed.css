@@ -1,0 +1,13 @@
+#feed_ul ul{
+	list-style: none;
+}
+#feed_ul li{
+	background-color: aliceblue;
+	padding:5px;
+	margin:20px;
+	color:rgb(27, 148, 194);
+}
+#feed_ul li img{
+	border: 5px solid white;
+	margin-right: 15px;
+}

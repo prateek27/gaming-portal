@@ -8,5 +8,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^',user_profile_view,name="user_profile_view"),
-    
+ 	url(r'^all/',all_users_view,name="all_users_view"),
+       
 )

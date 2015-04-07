@@ -7,7 +7,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'GamingPortal.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^',home_view,name="home_view"),
-    url(r'^about/$',about_view,name="about_view"),
-    url(r'^users/$',users_view,name="users_view"),
-)
+    url(r'^home/',home_view,name="home_view"),
+    url(r'^feed/',news_feed,name="news_feed_view"),
+ )

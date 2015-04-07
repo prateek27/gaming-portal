@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load staticfiles %} 
+<html>
+
+<head>
+	<title>Games Home</title>
+	<link rel="stylesheet" href="{% static "css/nav.css" %}">  
+	<link rel="stylesheet" href="{% static "css/games.css" %}">  
+</head>
+
+</body>
+<nav class="flex_container">
+		<img src="{% static "images/logo.jpg" %}"/>
+		<ul class="flex_container">
+				
+			<li><a href ="/users" a>Profile</a></li>
+			<li><a href ="/games" a>Games</a></li>
+			<li><a href="/feed" a>Home</a></li>
+			<li><a href="/logout">Logout</a></li>
+		</ul>
+</nav>
+<div id="empty_div">
+</div>
+<div>
+
+	<ul>
+		{% for x in game_list %}
+			<li class="flex_container">
+			<div id="game_info" class="flex_container">
+			<img src="{{x.game_image.url}}"> 
+
+				<div id="inner_div">
+				<h2>{{x.game_name}}<h2> 
+			 	<h3>Highscore: <strong>{{ x.game_highscore}}</strong></h3>
+				<h3>Highscorer: <strong>{{x.game_highscorer}}</strong></h3>
+				<a href="games/{{x.game_slug_field}}"><btn id="play_btn">Play</btn>
+				</div></a>
+			</div>	
+			</li>
+
+			<br>
+		{% endfor %}
+	</ul>
+</div>
+	
+</body>	
+		
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load staticfiles %} 
+<html>
+
+<head>
+	<title>Games Feed</title>
+	<link rel="stylesheet" href="{% static "css/nav.css" %}">  
+	<link rel="stylesheet" href="{% static "css/feed.css" %}">  
+</head>
+
+</body>
+<nav class="flex_container">
+		<img src="{% static "images/logo.jpg" %}"/>
+		<ul class="flex_container">
+				
+			<li><a href ="/users" a>Profile</a></li>
+			<li><a href ="/games" a>Games</a></li>
+			<li><a href="/feed" a>Home</a></li>
+			<li><a href="/logout">Logout</a></li>
+		</ul>
+</nav>
+<div id="empty_div">
+</div>
+<div>
+
+	<ul id="feed_ul">
+		{% for x in feed %}
+		<li class="flex_container">
+			
+			<img src = "{{x.game.game_image.url}}" width="50px" height="50px" />
+			<p>
+			<strong> {{x.user.username}} </strong> played <strong> {{x.game.game_name}} </strong> and scored <strong> {{x.score}} </strong>
+			at {{x.timestamp}}	
+			</p>
+						
+		</li>
+		{% endfor %}
+	</ul>
+</div>
+	
+</body>	
+		
+
+</html>
