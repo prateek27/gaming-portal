@@ -15,7 +15,7 @@ from django.core import serializers
 
 def login_view(request):
     if request.user.is_authenticated():
-        return HttpResponse("You are already Logged In ") 
+        return HttpResponse("You are already Logged in " + request.user.username) 
     
     if request.method =='POST':
         next_url = request.POST.get('next',None)
@@ -27,7 +27,8 @@ def login_view(request):
             if next_url is not None:
                 return redirect(next_url)
             else:
-                return HttpResponse("Welcome "+uname)
+                context_dict={'username':uname}
+                return redirect('/users/')
         else:
             return HttpResponse("Invalid Credentials")   
     else:

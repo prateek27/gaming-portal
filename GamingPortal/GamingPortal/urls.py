@@ -13,4 +13,5 @@ urlpatterns = patterns('',
     url(r'^',include('login.urls')),
     url(r'^home',include('home.urls')),
     url(r'^games',include('games.urls')),
+    url(r'^users',include('users.urls')),
 )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -4,14 +4,138 @@
 	<title>My Profile</title>
 </head>
 <style>
+html{
+	background-color: #00ADEF;
+	padding: 0px;
+	min-height: 900px; 
+}
 
-<style>
+body{
+	background-color: white;
+	width:80%;
+	margin: auto;
+	border-radius: 50px;
+	min-height: 800px;
+}
+.inside_body_container{
+	margin: 20px;
+	padding: 40px;
+}
+.flex_container{
+	display: flex;
+	direction: row;
+}
+ul{
+	list-style: none;
+	color:blue;
+	margin-left: 40%;
+	margin-top: 30px;
+}
+ul li{
+	list-style: none;
+	margin-left: 20px;
+}
+nav a{
+	text-decoration: none;
+	color:orange;
+	font-style: bold;
+	font-family: sans-serif;
+	font-weight: bold;
+
+}
+nav{
+	background-color: white;
+	border-bottom: 10px solid orange;
+	position:fixed;
+	width: 100%;
+	margin-left: -10%;
+	margin-top: 0%;
+
+}
+nav img{
+	width:25%;
+	height: 25%;
+}
+section{
+	padding:50px;
+}
+#profile_image{
+	height: 250px;
+	width:250px;
+	border:10px solid aliceblue;
+}
+#empty_div{
+	height: 50px;
+}
+#details{
+	margin-left: 50px;
+	background: aliceblue;
+	padding:20px;
+	min-width:500px;
+	border-radius: 10px;
+	color:orange;
+}
+#details:after{
+	width: 0px;
+	height: 0px;
+	content: "";
+	border:20px solid transparent;
+	border-right:40px solid aliceblue;
+	margin-top: -150px;
+	margin-left:-80px;
+	position: absolute;
+
+
+
+}
+.inside_body_container{
+	padding:50px;
+}
+#details h2,h3{
+	display: inline;
+	text-decoration:none;
+	text-shadow:1px 1px 1px 0px black;
+	color:#00adef;
+}
+section h2::after{
+	content: "";
+	height: 10px;
+	width:50px;
+	background-color: orange;
+}
+</style>
 
 <body>
-	<nav>
+	<nav class="flex_container">
 		<img src="{% static "images/logo.jpg" %}"/>
-
+				
+		<br>
+		
+		<ul class="flex_container">
+				
+			<li><a href ="/users" a>Profile</a></li>
+			<li><a href ="/games" a>Games</a></li>
+			<li><a href="/feed" a>Home</a></li>
+			<li><a href="/logout">Logout</a></li>
+		</ul>
 	</nav>
-
+	<div id="empty_div"></div>
+	<section id="basic_section">
+	
+	<div id="inside_body_container" class="flex_container">
+		<img id="profile_image"src={{photoUrl}}/>
+		<div id="details">		
+		<h2>Welcome {{username}} !</h2>
+		<h4>Name:</h4><h3>{{fullName}}</h3>
+		
+		<h4>Email:</h4><h3>{{photoUrl}}</h3>
+		<h4>Website:</h4><a href="{{website}}"><h3>{{website}}</h3></a>
+		<h4>Games Played:</h4>		
+		</div>
+	</div>
+	</section>
+	<section id="games_section">
+	<h2>Highscores</h2>
+	</section>
 </body>
 </html>
