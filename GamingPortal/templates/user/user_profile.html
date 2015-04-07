@@ -74,8 +74,11 @@ section{
 	min-width:500px;
 	border-radius: 10px;
 	color:orange;
+	border:5px solid orange;
+	border-radius:20px;
+
 }
-#details:after{
+#detail:after{
 	width: 0px;
 	height: 0px;
 	content: "";
@@ -92,16 +95,20 @@ section{
 	padding:50px;
 }
 #details h2,h3{
-	display: inline;
+	display: block;
 	text-decoration:none;
 	text-shadow:1px 1px 1px 0px black;
-	color:#00adef;
+	color:orange;
 }
 section h2::after{
 	content: "";
 	height: 10px;
 	width:50px;
 	background-color: orange;
+}
+strong{
+	color:#00adef;
+	font-size:1.5rem;
 }
 </style>
 
@@ -126,11 +133,13 @@ section h2::after{
 		<img id="profile_image"src={{photoUrl}}/>
 		<div id="details">		
 		<h2>Welcome {{username}} !</h2>
-		<h4>Name:</h4><h3>{{fullName}}</h3>
-		
-		<h4>Email:</h4><h3>{{photoUrl}}</h3>
-		<h4>Website:</h4><a href="{{website}}"><h3>{{website}}</h3></a>
-		<h4>Games Played:</h4>		
+		<h3>Name :<strong>{{fullName}}</strong></h3>
+		<h3>Website :<strong>{{website}}</strong></h3>
+		<h3>Email :<strong>{{email}}</strong></h3>
+		<h3>Games Played :<strong>2048,NaMo-The-Fighter</strong></h3>
+
+	
+
 		</div>
 	</div>
 	</section>
