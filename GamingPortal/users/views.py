@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from login.models import UserProfile
+from django.contrib.auth.models import User
 # Create your views here.
 def user_profile_view(request):
 	if request.user.is_authenticated():
@@ -26,4 +27,7 @@ def user_profile_view(request):
 		return HttpResponse("You are Not Logged In !")
 
 def all_users_view(request):
-	return HttpResponse("Welcome to All Users")
+	user_list = User.objects.all()
+	context_dict = { 'users':user_list}
+
+	return render(request,"user/all_users.html",context_dict)

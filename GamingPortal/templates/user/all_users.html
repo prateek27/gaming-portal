@@ -6,16 +6,37 @@
 	<title>Games Feed</title>
 	<link rel="stylesheet" href="{% static "css/nav.css" %}">  
 	<link rel="stylesheet" href="{% static "css/feed.css" %}">  
+
+<style>
+h5{
+	display: block;
+}
+strong{
+	color:orange;
+}
+
+.flex_container_wrap{
+	display: flex;
+	flex-wrap:wrap;
+}
+.flex_container_wrap  li{
+	width: 300px;
+}
+
+</style>
+
 </head>
+
 
 </body>
 <nav class="flex_container">
 		<img src="{% static "images/logo.jpg" %}"/>
 		<ul class="flex_container">
 				
-			<li><a href ="/users" a>Profile</a></li>
-			<li><a href ="/games" a>Games</a></li>
-			<li><a href="/feed" a>Home</a></li>
+			<li><a href ="/users">Profile</a></li>
+			<li><a href ="/games">Games</a></li>
+			<li><a href ="/users/all">Players</a></li>
+			<li><a href="/feed" >Home</a></li>
 			<li><a href="/logout">Logout</a></li>
 		</ul>
 </nav>
@@ -23,16 +44,18 @@
 </div>
 <div>
 
-	<ul id="feed_ul">
-		{% for x in feed %}
-		<li class="flex_container">
+	<ul id="feed_ul" class="flex_container_wrap">
+		{%for x in users %}
+		<li class="flex_container" id="user_li">
 			
-			<img src = "{{x.game.game_image.url}}" width="50px" height="50px" />
-			<p>
-			<strong> {{x.user.username}} </strong> played <strong> {{x.game.game_name}} </strong> and scored <strong> {{x.score}} </strong>
-			at {{x.timestamp}}	
-			</p>
-						
+			<img src = ""width="100px" height="100px" />
+			<div>
+			<h5>
+			<strong> {{x.username}} </strong>
+			</h5>
+			<h5>{{x.first_name}} {{x.last_name}}</h5>
+			<h5>{{x.email}}</h5>
+			</div>		
 		</li>
 		{% endfor %}
 	</ul>
