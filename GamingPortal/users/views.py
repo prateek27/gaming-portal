@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from login.models import UserProfile
+from games.models import GameDetail,GameSubmission
 from django.contrib.auth.models import User
 # Create your views here.
 def user_profile_view(request):
@@ -19,9 +20,12 @@ def user_profile_view(request):
 		substr = "/media/"
 		position = uPhoto.find(substr)
 		uPhoto = uPhoto[position:]
+
+		#Query for Game Highscores and highscorers 
+		game_list = GameDetail.objects.all()
 		
 		context_dict = {'username':uName,'fullName':uFullName,'photoUrl':uPhoto,
-		'website':uWebsite,'email':uEmail}
+		'website':uWebsite,'email':uEmail,'game_list':game_list}
 		return render(request,"user/user_profile.html",context_dict)
 	else:
 		return HttpResponse("You are Not Logged In !")

@@ -24,11 +24,10 @@
 	min-width:500px;
 	border-radius: 10px;
 	color:orange;
-	border:5px solid orange;
 	border-radius:20px;
 
 }
-#detail:after{
+#details:after{
 	width: 0px;
 	height: 0px;
 	content: "";
@@ -37,6 +36,7 @@
 	margin-top: -150px;
 	margin-left:-80px;
 	position: absolute;
+
 
 
 
@@ -50,6 +50,12 @@
 	text-shadow:1px 1px 1px 0px black;
 	color:orange;
 }
+section h1{
+	color:orange;
+	font-size: 2rem;
+	font-family: sans-serif;
+}
+
 section h2::after{
 	content: "";
 	height: 10px;
@@ -59,6 +65,15 @@ section h2::after{
 strong{
 	color:#00adef;
 	font-size:1.5rem;
+}
+#profile_feed {
+	list-style: none;
+	padding:10px;
+	border-radius: 10px;
+}
+#profile_feed li{
+	background-color: aliceblue;
+	margin: 10px;
 }
 </style>
 
@@ -94,8 +109,22 @@ strong{
 		</div>
 	</div>
 	</section>
+	
 	<section id="games_section">
-	<h2>Highscores</h2>
+	<h1>Latest TopScorers</h1>
+	<h2>Game : Highscore : Scored By</h2>
+	
+		<ul id="profile_feed">
+
+			{% for x in game_list %}
+			<li>
+			<p>{{x.game_name}} : {{x.game_highscore}} : {{x.game_highscorer.username}}</p>
+			</li>
+			{%endfor%}
+		</ul>
+	</section>
+	<section>
+	<h1>My Games</h1>
 	</section>
 </body>
 </html>
