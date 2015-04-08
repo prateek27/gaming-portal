@@ -48,11 +48,12 @@ strong{
 		{%for x in users %}
 		<li class="flex_container" id="user_li">
 			
-			<img src = "{{x.profile_image}}"width="100px" height="100px" />
+			<img src = "{{x.photo}}"width="100px" height="100px" />
 			<div>
 			<h5>
 			<strong> {{x.username}} </strong>
 			</h5>
+
 			<h5>{{x.first_name}} {{x.last_name}}</h5>
 			<h5>{{x.email}}</h5>
 			</div>		

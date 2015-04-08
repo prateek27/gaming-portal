@@ -32,6 +32,23 @@ def user_profile_view(request):
 
 def all_users_view(request):
 	user_list = User.objects.all()
-	context_dict = { 'users':user_list}
+	
 
+	y=User.objects.get(username="prateek")
+	pic_dict={}
+	new_user_list = []
+	for x in user_list:
+		user_full = x
+		
+		#print(user_full.username+user_full.photo)
+		user_profile = UserProfile.objects.filter(user=x)
+		if user_profile.count()==0:
+			user_full.photo = ""
+		else:
+			user_full.photo="/media/"+ str(user_profile[0].profile_image)
+
+		new_user_list.append(user_full)
+	
+	context_dict = { 'users':new_user_list ,'pics':pic_dict}
+	print(pic_dict)
 	return render(request,"user/all_users.html",context_dict)
