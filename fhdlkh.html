@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<head>
+	<title>My Profile</title>
+	<link rel="stylesheet" href="{% static "css/nav.css"  %}"> 
+ 	
+</head>
+<style>
+.inside_body_container{
+	margin: 20px;
+	padding: 40px;
+}
+#profile_image{
+	height: 250px;
+	width:250px;
+	border:10px #488214;
+}
+#empty_div{
+	height: 50px;
+}
+#details{
+	margin-left: 50px;
+	background: #CCFFCC;
+	padding:20px;
+	min-width:500px;
+	border-radius: 10px;
+	color:#5A6351	;
+	border-radius:20px;
+}
+#details:after{
+	width: 0px;
+	height: 0px;
+	content: "";
+	border:20px solid transparent;
+	border-right:40px #488214;
+	margin-top: -150px;
+	margin-left:-80px;
+	position: absolute;
+}
+.inside_body_container{
+	padding:50px;
+}
+#details h2,h3{
+	display: block;
+	text-decoration:none;
+	text-shadow:1px 1px 1px 0px black;
+	color:#5A6351	;
+}
+section h1{
+	color:#5A6351	;
+	font-size: 2rem;
+	font-family: sans-serif;
+}
+section h2::after{
+	content: "";
+	height: 10px;
+	width:50px;
+	background-color: #5A6351;
+}
+strong{
+	color:#8B3A3A;
+	font-size:1.5rem;
+}
+#profile_feed {
+	list-style: none;
+	padding:10px;
+	border-radius: 10px;
+}
+#profile_feed li{
+	background-color: #CCFFCC;
+	margin: 10px;
+}
+</style>
+
+<body>
+	<nav class="flex_container">
+		<img src="{% static "images/logo.jpg" %}"/>
+		
+				
+		<br>
+		
+		<ul class="flex_container">
+				
+			<li><a href ="/users" a>Profile</a></li>
+			<li><a href ="/games" a>Games</a></li>
+			<li><a href ="/users/all">Players</a></li>
+			<li><a href="/feed" a>Home</a></li>
+			<li><a href="/logout">Logout</a></li>
+		</ul>
+	</nav>
+	<div id="empty_div"></div>
+	<section id="basic_section">
+	
+	<div id="inside_body_container" class="flex_container">
+		<img id="profile_image"src={{photoUrl}}/>
+		<div id="details">		
+		<h2>Welcome {{username}} !</h2>
+		<h3>Name :<strong>{{fullName}}</strong></h3>
+		<h3>Website :<strong>{{website}}</strong></h3>
+		<h3>Email :<strong>{{email}}</strong></h3>
+		<h3>Games Played :<strong>2048,NaMo-The-Fighter</strong></h3>
+
+	
+
+		</div>
+	</div>
+	</section>
+	
+	<section id="games_section">
+	<h1>Latest TopScorers</h1>
+	<h2>Game : Highscore : Scored By</h2>
+	
+		<ul id="profile_feed">
+
+			{% for x in game_list %}
+			<li>
+			<p>{{x.game_name}} : {{x.game_highscore}} : {{x.game_highscorer.username}}</p>
+			</li>
+			{%endfor%}
+		</ul>
+	</section>
+	<section>
+	<h1>My Games</h1>
+	</section>
+</body>
+</html>

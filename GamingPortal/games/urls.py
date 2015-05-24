@@ -6,7 +6,8 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'GamingPortal.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-
     url(r'^$',games_view,name="games_view"),
+    url(r'^save_score/$',save_score,name="save_score"),
     url(r'(?P<game_name>[a-z,0-9,A-Z,-]+)/$',launch_game_view,name="launch_game_view"),
+  	 
   )

@@ -1,3 +1,5 @@
+var global_score = 0;
+
 var game = (function(){
 var prev_state = [];
 var game_matrix = [];
@@ -50,6 +52,7 @@ function getRandomNumber(){
 	}
 }
 function render(){
+	global_score = score;
 	for(i=0;i<16;i++){
 		
 		if(game_matrix[parseInt(i/4)][i%4]!=0)
@@ -67,6 +70,8 @@ function render(){
 		localStorage.setItem("high_score",""+highScore);
 		}
 	document.getElementById("high_score").innerHTML ="HighScore :" + highScore;
+
+
 }
 
 function clubHorizontally(){
@@ -215,7 +220,7 @@ function keyPressed(e){
 	render();
 }
 function getClassName(number){
-	console.log(number);
+	//console.log(number);
 	switch(number){
 		case 0:return "zero";
 		case 2:return "two";
@@ -270,3 +275,19 @@ return{
 }
 
 })();
+
+
+$('#submit-button').click(function() {
+   $.ajax({
+      type:'POST',
+				url:'/games/save_score/',
+				data:{
+					'game_id':1,
+					'score':global_score,
+				},
+
+      error: function() {
+         //$('#info').html('<p>An error has occurred</p>');
+      },
+   });
+});

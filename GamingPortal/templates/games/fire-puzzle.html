@@ -1,0 +1,46 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Smallest enclosing circle</title>
+<style>
+img{
+	display: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<button id="submit-button">Submit Score</button>
+<hr/>
+
+<div id="main-wrapper">
+<div id="main">
+<article>
+<h1><center>Smallest enclosing circle</center></h1>
+
+<canvas width="800" height="600" id="canvas" style="display:block; margin:1em auto; border:1px solid #000000;"></canvas>
+<form action="#">
+	<div style="text-align:center">
+		<input type="button" value="Random Input" onclick="doRandom()"/>
+		<input type="button" value="Clear Canvas" onclick="doClear()"/>
+		<input type="button" value="Extinguish !" onclick="doKill()"/>
+	</div>
+</form>
+
+<img id="fire" src="{%static 'images/fire_images/fire.png' %}"/>
+<img id="water" src="{%static 'images/fire_images/water.png' %}"/>
+<img id="drop" src="{%static 'images/fire_images/drop.png' %}"/>
+<img id="smoke" src="{%static 'images/fire_images/smoke.png' %}"/>
+
+<script type="application/javascript" src="{% static 'javascript/firepuzzle/MECV.js' %}"></script>
+
+	<p><b><center>Left Mouse Button: Add point or move existing point. Drag to move the point.</center></b></p>
+	<p><b><center>Right Mouse Button: Delete point.</center></b></p>
+	
+
+</body>
+</html>

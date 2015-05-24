@@ -13,6 +13,6 @@ def about_view(request):
 def users_view(request):
 	return HttpResponse("This is HomePage")
 def news_feed(request):
-	recent_feed = GameSubmission.objects.all()
+	recent_feed = GameSubmission.objects.all().order_by('-timestamp')
 	context_dict = { 'feed':recent_feed }
 	return render(request,"home/feed.html",context_dict)

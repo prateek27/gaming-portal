@@ -15,8 +15,8 @@ from django.core import serializers
 
 def login_view(request):
     if request.user.is_authenticated():
-        return HttpResponse("You are already Logged in " + request.user.username) 
-    
+        #return HttpResponse("You are already Logged in " + request.user.username) 
+        return redirect('/users/')
     if request.method =='POST':
         next_url = request.POST.get('next',None)
         uname = request.POST.get('username')
@@ -58,7 +58,7 @@ def signup_view(request):
             
             user_profile.save()
 
-            return HttpResponse("You are now successfully registered ! ")
+            return redirect("")
         else:
             return HttpResponse("Form Not Valid !")
     else:

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+	<head>
+		<title>NaMo:The Fighter</title>
+		<script src="{%static 'javascript/namojs/jquery-1.10.js'%}">
+		</script>
+		<script src="{%static 'javascript/namojs/blockUI.js'%}">
+		</script>
+		<script src="{%static 'javascript/namojs/jqeasing.js'}">
+		</script>
+		<script src="{%static 'javascript/namojs/bpopup.js'}">
+		</script>
+		
+		<style>
+			canvas {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				background: transparent;
+			}
+			#background {
+				z-index: -2;
+			}
+			#main {
+				z-index: -1;
+			}
+			#hero {
+				z-index: 0;
+			}
+			
+	.score{
+	position:absolute;
+	top:605px;
+	left:590px	;
+	color: #8B5016;
+    font:bold 40px tahoma;
+	
+	cursor: default;
+	}
+	
+	.game-over{
+	position:absolute;
+	top:200px;
+	left:500px;
+	color:#13AF58;
+	font:bold 50px tahoma;
+	cursor:default;
+	display:none;
+	background : #fff ;
+	padding : 30px ;
+	border-radius : 30px ;
+	background:url("imgs/bgStrip.jpg");
+	}
+	.game-over span{
+	font:bold 40px tahoma;
+	color:#FF6600;
+	cursor:pointer;
+	position:relative;
+	left:60px;
+	}
+	.game-over span:hover{
+	color:#FFD700;
+	}
+	.game-over-2{
+	position:absolute;
+	top:200px;
+	left:500px;
+	color:#13AF58;
+	font:bold 50px tahoma;
+	cursor:default;
+	display:none;
+	background:url("imgs/bgStrip.jpg");
+	padding : 30px ;
+	border-radius : 30px ;
+	}
+	.game-over-2 span{
+	font:bold 40px tahoma;
+	color:#FF6600;
+	cursor:pointer;
+	position:relative;
+	left:60px;
+	}
+	.game-over-2 span:hover{
+	color:#FFD700;
+	}
+	.loading{
+		position:absolute;
+		top:200px;
+		left:500px;
+		color:#FF7F00;
+		font-family:arial;
+		font-size:40px;
+		cursor:default;
+	}
+	#scorebar{
+	position : absolute ;
+	top:600px;
+	left : 0 ;
+	z-index : -4;
+	height:60px;
+	width:1200px;
+	
+	
+	}
+	.game-over-2{
+	position:absolute;
+	top:200px;
+	left:500px;
+	color:#13AF58;
+	font:bold 50px tahoma;
+	cursor:default;
+	display:none;
+	background:url("imgs/bgStrip.jpg");
+	padding : 30px ;
+	border-radius : 30px ;
+	}
+	.game-over-2 span{
+	font:bold 40px tahoma;
+	color:#FF6600;
+	cursor:pointer;
+	position:relative;
+	left:60px;
+	}
+	
+		</style>
+	</head>
+	<body><script>
+	
+	$.blockUI({ css: { 
+            border: 'none', 
+            padding: '15px', 
+            backgroundColor: '#000', 
+            '-webkit-border-radius': '10px', 
+            '-moz-border-radius': '10px', 
+            opacity: .5, 
+            color: '#fff' 
+        } }); 
+	
+	
+	</script>
+		<!-- The canvas for the panning background -->
+		<canvas id="background" width="1200" height="600">
+			Your browser does not support canvas. Please try again with a different browser.
+		</canvas>
+		<!-- The canvas for all enemy ships and bullets -->
+		<canvas id="main" width="1200" height="600">
+		</canvas>
+		<!-- The canvas the ship uses (can only move up
+         one forth the screen. -->
+		<canvas id="hero" width="1200" height="600">
+		</canvas>
+		<div class="score"> <span id="score"></span></div>
+		<div class="game-over" id="game-over">Election Over<br>NaMo won <div class="seats" style="display:inline;"></div> seats!<p><span onclick="game.restart()"><a class="b-close">Re-Contest<a/></span></p></div>
+		<div class="game-over-2" id="game-over-2" style="display:none">Election Over<br>NaMo won <div class="seats" style="display:inline;"></div> seats!<p>Mission 272+ Accomplished !<br><a class="b-close"><span onclick="game.restart()">Re-Contest</span><a/></p></div>
+		
+		<script src="{% static 'javascript/namojs/game.js'%}"></script>
+		<div id="question" style="display:none; cursor: default"> 
+        <h1>Mission 272+ Accomplished !!</h1> 
+     	  <input type="button" id="yes" value="Play again" onclick='fun()'/> 
+	</div>
+	<div id="scorebar" style="display:none;"><img src="img/score.png"></div>
+		
+		<script> function fun(){
+		      
+			  $.unblockUI();
+		        game.restart();
+		
+		}</script>
+	
+
+	</body>
+</html>

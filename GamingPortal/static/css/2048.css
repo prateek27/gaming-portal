@@ -24,9 +24,10 @@ body{
 }
 
 button{
-	position: absolute;
+
 	margin:auto;
 	font-size: 2rem;
+	width: 300px;
 	color:rgb(61, 35, 18);
 	font-family: -webkit-pictograph, sans-serif;
 	text-shadow:2px 2px 1px white;
@@ -36,6 +37,19 @@ button{
 	padding-right: 30px; 
 	border:none;
 	margin-left: 100px;
+}
+#submit-button{
+margin:auto;
+	font-size: 2rem;
+	color:rgb(61, 35, 18);
+	font-family: -webkit-pictograph, sans-serif;
+	text-shadow:2px 2px 1px white;
+	background: rgb(186, 172, 159);
+	padding:5px;
+	padding-left: 20px;
+	padding-right: 30px; 
+	border:none;
+	margin-left: 100px;	
 }
 #user_score,#high_score{
 	margin-top: 30px;

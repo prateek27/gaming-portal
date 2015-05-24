@@ -1,13 +1,12 @@
 
 <!DOCTYPE html>
-{% load staticfiles %} 
 <html>
 <head>
     	<style type="text/css">
 		/*************** ANIMATIONS ***************/
 		@-webkit-keyframes cube-spin {
-			from { -webkit-transform: rotateY(0);-webkit-transform: rotateX(40); }
-			to { -webkit-transform: rotateY(360deg); -webkit-transform: rotateX(40);}
+			from { -webkit-transform: rotateY(0); }
+			to { -webkit-transform: rotateY(360deg); }
 		}
 
 		@-ms-keyframes cube-spin {
@@ -56,7 +55,7 @@
 		}
 
 		.cube div {
-			position: absolute;
+			position: absolute ;
 			width: 200px;
 			height: 200px;
 			background: rgba(255,255,255,0.1);
@@ -137,16 +136,22 @@
 
 			transform: translateZ(100px);
 		}
+ h2 {
+			
+			
+			font-size: 40px;
+			
+			line-height: 200px;
+			color: #f4a460 ;
+			font-family: sans-serif;
+			
+		}
 
 
 
 .btn {
-  background: #d93434;
-  background-image: -webkit-linear-gradient(top, #d93434, #b82b2b);
-  background-image: -moz-linear-gradient(top, #d93434, #b82b2b);
-  background-image: -ms-linear-gradient(top, #d93434, #b82b2b);
-  background-image: -o-linear-gradient(top, #d93434, #b82b2b);
-  background-image: linear-gradient(to bottom, #d93434, #b82b2b);
+  background:orange;
+  
   -webkit-border-radius: 170;
   -moz-border-radius: 170;
   border-radius: 1700px;
@@ -158,41 +163,42 @@
   color: #0f0e0e;
   font-size: 26px;
   padding: 4px;
-  border: solid #e31459 2px;
+  border: solid #f4a460 2px;
   text-decoration: none;
 }
 
 .btn:hover {
-  background: #f2f21b;
-  background-image: -webkit-linear-gradient(top, #f2f21b, #eb9132);
-  background-image: -moz-linear-gradient(top, #f2f21b, #eb9132);
-  background-image: -ms-linear-gradient(top, #f2f21b, #eb9132);
-  background-image: -o-linear-gradient(top, #f2f21b, #eb9132);
-  background-image: linear-gradient(to bottom, #f2f21b, #eb9132);
+  background: lightblue;
   text-decoration: none;
 }
 		
 	</style>
 </head>
-<body background = "{% static "images/background_image.jpg"%}">
+<body background = "background_image.jpg">
+<div class= "logo"><h3> <img src="logo.jpg" align="left" height="75" width="400"> </h3>
+</div>
+
+<div align="right">
+<button type="button" class = "btn "onclick="alert('Hello World!')">LOGIN</button> &nbsp &nbsp &nbsp &nbsp
+
+<button type="button" class = "btn "onclick="alert('Hello World!')">REGISTER</button> &nbsp &nbsp &nbsp &nbsp
+</div>
 
 
 
-
-
-
-	<h1 style="color:white"><center>GAMERS HQ</center></h1>
-	<h3 style="color:yellow"><center>Come . Play . Challenge</center></h3>
+	<br><br>
 	<div style="height: 300px;margin-top:100px;">
 	<div class="cube-wrap">
 		<div class="cube depth">
-			<div class="front-pane"><img src = "{% static "images/1.jpg"%}" height=205 width=205 ></div>
-			<div class="back-pane"><img src = "{% static "images/2.jpg"%}"height=205 width=205></div>
-			<div class="top-pane"><img src = "{% static "images/3.jpg"%}" height=205 width=205></div>
-			<div class="bottom-pane"><img src = "{% static "images/1.jpg"%}" height=205 width=205 ></div>
-			<div class="left-pane"><img src = "{% static "images/2.jpg"%}"height=205 width=205></div>
-			<div class="right-pane"><img src = "{% static "images/3.jpg"%}"height=205 width=205></div>
-		</div>
+			<div class="front-pane"><img src = "1.jpg" height=205 width=205 ></div>
+			<div class="back-pane"><img src = "2.jpg "height=205 width=205></div>
+			<div class="top-pane"><img src = "3.jpg" height=205 width=205></div>
+			<div class="bottom-pane"><img src = "1.jpg" height=205 width=205 "></div>
+			<div class="left-pane"><img src = "4.png "height=205 width=205></div>
+			<div class="right-pane"><img src = "3.jpg "height=205 width=205></div>
+</div>
+
+	<div> <img src="quote.jpg" align="right">	</div>
 	</div>
 	</div>
 
@@ -203,12 +209,9 @@
 
 
 
-<div align = "center">
-<a href ="/login/"><button class = "btn">LOGIN</button></a>
-<br>
-<br>
-<a href="/signup"><button type="button" class = "btn" >REGISTER</button></a>
-</div>
+
+
+
 
 </body>
 </html>

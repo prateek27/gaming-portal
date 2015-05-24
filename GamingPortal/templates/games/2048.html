@@ -3,7 +3,8 @@
 <html>	
 	<head>
 		<title>Let's play 2048</title>
-		<script type="text/javascript" src="{% static "javascript/2048.js" %}"></script>
+		
+		<script type="text/javascript" src="{% static "javascript/jquery-1.11.2.min.js" %}"></script>
 		<link rel="stylesheet" href="{% static "css/2048.css"  %}">  
 	</head>
 	<body>
@@ -42,8 +43,10 @@
 				<div id="user_score">Score: 0</div>
 				<div id="high_score"></div>
 				<button onclick="game.init()">PLAY GAME</button>
+
 			</div>
-			
+					<button id ='submit-button'>SUBMIT SCORE</button>
 		</div>
+		<script type="text/javascript" src="{% static "javascript/2048.js" %}"></script>
 	</body>
 </html>
