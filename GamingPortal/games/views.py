@@ -38,4 +38,4 @@ def save_score(request):
 	print(game.game_name)
 	submission = GameSubmission.objects.create(game=game,user=user,score=game_score)
 	
-	return HttpResponse("Hello !")
+	return HttpResponse("Ok")
