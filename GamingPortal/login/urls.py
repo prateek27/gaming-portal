@@ -9,5 +9,5 @@ urlpatterns = patterns('',
 
     url(r'^login/$',login_view,name="login_view"),
     url(r'^logout/$',logout_view,name="logout_view"),
-    url(r'^signup/$',signup_view,name="logout_view"),
+    url(r'^signup/$',signup_view,name="signup_view"),
 )

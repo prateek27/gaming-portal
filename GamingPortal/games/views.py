@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from games.models import GameDetail,GameSubmission
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import send_mail
 # Create your views here.
 
 def games_view(request):
@@ -39,3 +40,18 @@ def save_score(request):
 	submission = GameSubmission.objects.create(game=game,user=user,score=game_score)
 	
 	return HttpResponse("Ok")
+
+@csrf_exempt
+def send_challenge(request):
+	user = request.user
+	to = request.POST.get('to')
+	subject =request.POST.get('subject')
+	message = request.POST.get('message')
+	sender = user.first_name+" " + user.last_name
+	new_subject =  sender + " has challenged you on Gamers HQ! " + subject
+	resp=send_mail(new_subject, message,sender,[to], fail_silently=True)
+	print(resp)
+
+	return HttpResponse("Ok")
+
+

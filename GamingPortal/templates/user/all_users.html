@@ -6,8 +6,51 @@
 	<title>Games Feed</title>
 	<link rel="stylesheet" href="{% static "css/nav.css" %}">  
 	<link rel="stylesheet" href="{% static "css/feed.css" %}">  
+	<script type="text/javascript" src="{% static "javascript/jquery-1.11.2.min.js" %}"></script>
 
 <style>
+#challenge{
+	margin-left: 15px;
+	background-color: white;
+	border-style: none;
+	color:darkblue;
+}
+#challenge,#send_btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 11;
+  -moz-border-radius: 11;
+  border-radius: 11px;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 5px;
+  text-decoration: none;
+}
+
+#challenge:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+#send_btn{
+	float:right;
+	width: 100%;
+	border-radius: 0px;
+}
+a{
+	text-decoration: none;
+	color:rgb(247, 105, 15);
+}
+
 #close_btn{
 	margin-left: 480px;
 	background-color: orange;
@@ -20,8 +63,8 @@
 	position: fixed;
 	margin-left: 150px;
 	width: 520px;
-	border:2px solid gray;
-	box-shadow: 5px 5px 5px 5px solid gray;
+	border:2px solid white;
+	box-shadow: 6px 6px 5px gray;
 }
 .elegant-aero {
     margin-left:auto;
@@ -116,6 +159,7 @@ strong{
 .flex_container_wrap{
 	display: flex;
 	flex-wrap:wrap;
+	justify-content:space-around;
 }
 .flex_container_wrap  li{
 	width: 300px;
@@ -148,7 +192,7 @@ strong{
 <button id="close_btn" onclick="close_btn()" >X</button>	
 <form action="" method="post" class="elegant-aero">
     <h1>Send your Message:
-        <span>Please fill all Fiels.</span>
+        <span>Please fill all Fields.</span>
     </h1>
     <label>
         <span>Subject :</span>
@@ -162,9 +206,11 @@ strong{
 
      <label>
         <span>Message :</span>
-        <textarea ></textarea>
+        <textarea id="message" ></textarea>
     </label>
+
    </form>
+   <button id="send_btn" onclick="send_email()">Send Challenge</button>
 </div>
 	
 <div>
@@ -172,12 +218,16 @@ strong{
 	<ul id="feed_ul" class="flex_container_wrap">
 		{%for x in users %}
 		<li class="flex_container" id="user_li">
-			
+			<div style="width:130px;">
 			<img src = "{{x.photo}}"width="100px" height="100px" />
+			<button id="challenge" onclick="show_popup('{{x.email}}','{{x.first_name}}')">Challenge</button>
+			
+			</div>
 			<div>
-			<h5>
+			
+			<h4>
 			<a href=""><strong> {{x.username}} </strong></a>
-			</h5>
+			</h4>
 
 			<h5>{{x.first_name}} {{x.last_name}}</h5>
 			<h5 id="xyz">{{x.email}}</h5>
@@ -186,7 +236,6 @@ strong{
 				email_value = document.getElementById('xyz').innerHTML;
 				console.log(email_value);
 			</script>
-			<button onclick="show_popup()">Message</button>
 			</div>		
 		
 		</li>
@@ -201,12 +250,34 @@ strong{
 </html>
 
 <script>
-function show_popup(){
+function show_popup(str,name){
 	popup=document.getElementById('email_box').style.display="block";
 
-	document.getElementById('email').value=email_value;
+	document.getElementById('email').value=str;
+	document.getElementById('message').value="Hi "+name +","+ "\n"+"I would like to challenge you to beat me in this Game";
 }
 function close_btn(){
 	 document.getElementById('email_box').style.display='none';
+}
+function send_email(){
+	subject = document.getElementById('subject').value;
+	to = document.getElementById('email').value;
+	message = document.getElementById('message').value;
+	console.log(subject);
+	console.log(message);
+	$.ajax({
+      type:'POST',
+				url:'/games/send_challenge/',
+				data:{
+					'subject':subject,
+					'to':to,
+					'message':message,
+				},
+
+      error: function() {
+         //$('#info').html('<p>An error has occurred</p>');
+      },
+   });
+
 }
 </script>

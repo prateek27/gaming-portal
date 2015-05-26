@@ -30,6 +30,7 @@ def user_profile_view(request):
 	else:
 		return HttpResponse("You are Not Logged In !")
 
+
 def all_users_view(request):
 	user_list = User.objects.all()
 	

@@ -58,7 +58,7 @@ def signup_view(request):
             
             user_profile.save()
 
-            return redirect("")
+            return redirect("/login/")
         else:
             return HttpResponse("Form Not Valid !")
     else:
