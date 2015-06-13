@@ -75,6 +75,14 @@ strong{
 	background-color: aliceblue;
 	margin: 10px;
 }
+tr{
+	width: 600px;
+	background-color: aliceblue;
+	border:1px solid orange;
+}
+td{
+	width: 200px;
+}
 </style>
 
 <body>
@@ -115,12 +123,17 @@ strong{
 	<h2>Game : Highscore : Scored By</h2>
 	
 		<ul id="profile_feed">
-
+		<table>
+			
 			{% for x in game_list %}
 			<li>
-			<p>{{x.game_name}} : {{x.game_highscore}} : {{x.game_highscorer.username}}</p>
+			<tr>
+			<td>{{x.game_name}} </td><td> {{x.game_highscore}} </td><td>{{x.game_highscorer.username}}</td>
+			</tr>
 			</li>
+			
 			{%endfor%}
+		</table>	
 		</ul>
 	</section>
 	<section>

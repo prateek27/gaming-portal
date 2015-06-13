@@ -339,7 +339,8 @@ $('#submit-button').click(function() {
 				},
 
       error: function() {
-         //$('#info').html('<p>An error has occurred</p>');
+         //**********//
       },
    });
+   alert("Score Submitted Successfully !");
 });
